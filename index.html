@@ -190,7 +190,7 @@
   .cakeSvg{ width:min(300px, 62vw); height:auto; display:block; }
 
   .flame{
-    transform-origin: center bottom;
+    transform-origin: center center;
     cursor:pointer;
     transition:opacity 0.25s ease;
     filter:drop-shadow(0 0 4px rgba(242,184,75,0.9)) drop-shadow(0 0 9px rgba(242,184,75,0.6));
@@ -496,11 +496,12 @@
 
   <!-- SCENE 1: INVITE -->
   <section class="scene active" id="scene-invite">
-    <div class="eyebrow">Ada kejutan kecil</div>
+    <div class="eyebrow">Assalamualaikum</div>
     <h1>Malam ini, langit<br>menyimpan <em>satu doa</em><br>untukmu.</h1>
     <input type="text" class="nameField" id="nameInput" placeholder="tulis namamu di sini..." maxlength="20">
-    <p class="sub">Sebelum kejutannya terbuka, satu hal dulu — nyalakan lilinnya, lalu tiup satu per satu.</p>
-    <button class="btn" id="btnOpen">Buka Kejutan →</button>
+    <p class="sub">Sebelum dipencet tombol pencet. Tiup Lilinnya.</p>
+    <p class="sub">(Ditekan api lilinnya, yh anggap aja ditiup).</p>
+    <button class="btn" id="btnOpen">Pencet →</button>
   </section>
 
   <!-- SCENE 2: CAKE -->
@@ -583,35 +584,35 @@
 
   <!-- SCENE 3: MESSAGE -->
   <section class="scene" id="scene-message">
-    <div class="eyebrow">Selamat ulang tahun</div>
+    <div class="eyebrow">Selamat ulang tahun sayaangg</div>
 
     <div class="photoRow">
       <figure class="photoFrame frame1">
-        <img src="photo1.jpg" alt="Foto kenangan 1">
-        <figcaption>tulis caption di sini</figcaption>
+        <img src="4.png" alt="Foto kenangan 1">
+        <figcaption>still, favorite of all time (❁´◡`❁)</figcaption>
       </figure>
       <figure class="photoFrame frame2">
-        <img src="photo2.jpg" alt="Foto kenangan 2">
-        <figcaption>tulis caption di sini</figcaption>
+        <img src="3.png" alt="Foto kenangan 2">
+        <figcaption>GOLDEN HOUR !? (/≧▽≦)/</figcaption>
       </figure>
     </div>
 
     <p class="letter" id="letterText">
-      Untuk <span class="highlight" id="letterName">kamu</span> — semoga tahun ini pelan-pelan membawa
-      semua yang selama ini kamu perjuangkan diam-diam. Terima kasih sudah bertahan,
+      Untuk <span class="highlight" id="letterName">kamu</span> — semoga tahun ini semua doa kamu terwujud,
+      dilimpahkan rezekinya, sehat selalu, wish u all the best. Terima kasih sudah bertahan,
       sudah berusaha, dan sudah tetap jadi dirimu sendiri. Selamat menempuh satu putaran
-      matahari lagi. <span class="highlight">Selamat ulang tahun.</span> 🌙
+      matahari lagi. <span class="highlight">Selamat ulang tahun sayaangg.</span> 🌙
     </p>
     <div class="wishRow">
       <input type="text" class="wishField" id="wishInput" placeholder="tulis satu harapan, lalu lepaskan..." maxlength="60">
       <button class="btn ghost" id="btnWish">Lepaskan ✧</button>
     </div>
-    <p class="wishNote" id="wishNote">harapanmu akan naik ke langit</p>
+    <p class="wishNote" id="wishNote">ur wishes will soar to the sky</p>
   </section>
 
 </div>
 
-<footer class="tag">dibuat dengan diam-diam, untuk dibuka sekali</footer>
+<footer class="tag">jangan lupa istighfar dan berdzikir</footer>
 
 <div class="musicBar" id="musicBar">
   <button class="musicBtn" id="musicToggle" aria-label="Putar atau jeda lagu">
