@@ -194,8 +194,10 @@
     animation:flicker 1.6s ease-in-out infinite;
     cursor:pointer;
     transition:opacity 0.25s ease;
+    filter:drop-shadow(0 0 4px rgba(242,184,75,0.9)) drop-shadow(0 0 9px rgba(242,184,75,0.6));
   }
   .flame:hover{ filter:brightness(1.3); }
+  .flameHit{ cursor:pointer; touch-action:manipulation; }
   @keyframes flicker{
     0%,100%{ transform:scaleY(1) rotate(0deg); }
     25%{ transform:scaleY(1.08) rotate(-3deg); }
@@ -424,17 +426,17 @@
   .musicBar{
     position:fixed;
     left:50%;
-    bottom:35px;
+    bottom:40px;
     transform:translate(-50%, 20px);
     display:flex;
     align-items:center;
-    gap:10px;
-    padding:8px 16px 8px 8px;
+    gap:7px;
+    padding:5px 12px 5px 5px;
     background:rgba(20,20,45,0.72);
     border:1px solid rgba(242,184,75,0.28);
     border-radius:999px;
     backdrop-filter:blur(8px);
-    box-shadow:0 10px 30px rgba(0,0,0,0.35);
+    box-shadow:0 8px 22px rgba(0,0,0,0.35);
     z-index:40;
     opacity:0;
     pointer-events:none;
@@ -447,7 +449,7 @@
   }
 
   .musicBtn{
-    width:32px; height:32px;
+    width:24px; height:24px;
     flex-shrink:0;
     border-radius:50%;
     border:none;
@@ -459,12 +461,13 @@
     cursor:pointer;
     transition:transform 0.2s ease, background 0.2s ease;
   }
+  .musicBtn svg{ width:11px; height:11px; }
   .musicBtn:hover{ transform:scale(1.08); }
   .musicBtn:focus-visible{ outline:2px solid var(--cream); outline-offset:2px; }
 
   .musicProgressWrap{
-    width:120px;
-    height:4px;
+    width:80px;
+    height:3px;
     background:rgba(255,246,233,0.18);
     border-radius:999px;
     cursor:pointer;
@@ -479,15 +482,16 @@
   }
 
   .musicTime{
-    font-size:11px;
+    font-size:10px;
     color:var(--cream-dim);
     font-variant-numeric:tabular-nums;
-    min-width:32px;
+    min-width:26px;
   }
 
   @media (max-width:420px){
     .wishField{ width:200px; }
-    .musicProgressWrap{ width:80px; }
+    .musicProgressWrap{ width:56px; }
+    .musicBar{ bottom:36px; padding:4px 10px 4px 4px; }
   }
 </style>
 </head>
@@ -499,12 +503,11 @@
 
   <!-- SCENE 1: INVITE -->
   <section class="scene active" id="scene-invite">
-    <div class="eyebrow">Assalamualaikum</div>
+    <div class="eyebrow">Ada kejutan kecil</div>
     <h1>Malam ini, langit<br>menyimpan <em>satu doa</em><br>untukmu.</h1>
-    <input type="text" class="nameField" id="nameInput" placeholder="ketik nama kamu di sini..." maxlength="20">
-    <p class="sub">Sebelum dipencet tombol pencet. Tiup Lilinnya (Ditekan api lilinnya, yh anggap aja ditiup).</p>
-    <p class="sub">(Ditekan api lilinnya, yh anggap aja ditiup).</p>
-    <button class="btn" id="btnOpen">Pencet →</button>
+    <input type="text" class="nameField" id="nameInput" placeholder="tulis namamu di sini..." maxlength="20">
+    <p class="sub">Sebelum kejutannya terbuka, satu hal dulu — nyalakan lilinnya, lalu tiup satu per satu.</p>
+    <button class="btn" id="btnOpen">Buka Kejutan →</button>
   </section>
 
   <!-- SCENE 2: CAKE -->
@@ -532,38 +535,53 @@
         <!-- candles + flames (5) -->
         <g class="candle" data-idx="0">
           <rect x="107" y="35" width="7" height="26" rx="2" fill="#fff6e9"/>
-          <g class="flame" data-idx="0" transform="translate(110.5,30)">
-            <path d="M0,-11 C5,-6 5,1 0,5 C-5,1 -5,-6 0,-11 Z" fill="#f2b84b"/>
-            <path d="M0,-6 C3,-3 3,1 0,3 C-3,1 -3,-3 0,-6 Z" fill="#fff6e9"/>
+          <g class="flamePos" transform="translate(110.5,30) scale(1.6)">
+            <g class="flame" data-idx="0">
+              <path d="M0,-11 C5,-6 5,1 0,5 C-5,1 -5,-6 0,-11 Z" fill="#f2b84b"/>
+              <path d="M0,-6 C3,-3 3,1 0,3 C-3,1 -3,-3 0,-6 Z" fill="#fff6e9"/>
+            </g>
           </g>
+          <circle class="flameHit" data-idx="0" cx="110.5" cy="26" r="24" fill="transparent" pointer-events="all"/>
         </g>
         <g class="candle" data-idx="1">
           <rect x="127" y="30" width="7" height="31" rx="2" fill="#fff6e9"/>
-          <g class="flame" data-idx="1" transform="translate(130.5,25)">
-            <path d="M0,-11 C5,-6 5,1 0,5 C-5,1 -5,-6 0,-11 Z" fill="#f2b84b"/>
-            <path d="M0,-6 C3,-3 3,1 0,3 C-3,1 -3,-3 0,-6 Z" fill="#fff6e9"/>
+          <g class="flamePos" transform="translate(130.5,25) scale(1.6)">
+            <g class="flame" data-idx="1">
+              <path d="M0,-11 C5,-6 5,1 0,5 C-5,1 -5,-6 0,-11 Z" fill="#f2b84b"/>
+              <path d="M0,-6 C3,-3 3,1 0,3 C-3,1 -3,-3 0,-6 Z" fill="#fff6e9"/>
+            </g>
           </g>
+          <circle class="flameHit" data-idx="1" cx="130.5" cy="21" r="24" fill="transparent" pointer-events="all"/>
         </g>
         <g class="candle" data-idx="2">
           <rect x="147" y="27" width="7" height="34" rx="2" fill="#fff6e9"/>
-          <g class="flame" data-idx="2" transform="translate(150.5,22)">
-            <path d="M0,-11 C5,-6 5,1 0,5 C-5,1 -5,-6 0,-11 Z" fill="#f2b84b"/>
-            <path d="M0,-6 C3,-3 3,1 0,3 C-3,1 -3,-3 0,-6 Z" fill="#fff6e9"/>
+          <g class="flamePos" transform="translate(150.5,22) scale(1.6)">
+            <g class="flame" data-idx="2">
+              <path d="M0,-11 C5,-6 5,1 0,5 C-5,1 -5,-6 0,-11 Z" fill="#f2b84b"/>
+              <path d="M0,-6 C3,-3 3,1 0,3 C-3,1 -3,-3 0,-6 Z" fill="#fff6e9"/>
+            </g>
           </g>
+          <circle class="flameHit" data-idx="2" cx="150.5" cy="18" r="24" fill="transparent" pointer-events="all"/>
         </g>
         <g class="candle" data-idx="3">
           <rect x="167" y="30" width="7" height="31" rx="2" fill="#fff6e9"/>
-          <g class="flame" data-idx="3" transform="translate(170.5,25)">
-            <path d="M0,-11 C5,-6 5,1 0,5 C-5,1 -5,-6 0,-11 Z" fill="#f2b84b"/>
-            <path d="M0,-6 C3,-3 3,1 0,3 C-3,1 -3,-3 0,-6 Z" fill="#fff6e9"/>
+          <g class="flamePos" transform="translate(170.5,25) scale(1.6)">
+            <g class="flame" data-idx="3">
+              <path d="M0,-11 C5,-6 5,1 0,5 C-5,1 -5,-6 0,-11 Z" fill="#f2b84b"/>
+              <path d="M0,-6 C3,-3 3,1 0,3 C-3,1 -3,-3 0,-6 Z" fill="#fff6e9"/>
+            </g>
           </g>
+          <circle class="flameHit" data-idx="3" cx="170.5" cy="21" r="24" fill="transparent" pointer-events="all"/>
         </g>
         <g class="candle" data-idx="4">
           <rect x="187" y="35" width="7" height="26" rx="2" fill="#fff6e9"/>
-          <g class="flame" data-idx="4" transform="translate(190.5,30)">
-            <path d="M0,-11 C5,-6 5,1 0,5 C-5,1 -5,-6 0,-11 Z" fill="#f2b84b"/>
-            <path d="M0,-6 C3,-3 3,1 0,3 C-3,1 -3,-3 0,-6 Z" fill="#fff6e9"/>
+          <g class="flamePos" transform="translate(190.5,30) scale(1.6)">
+            <g class="flame" data-idx="4">
+              <path d="M0,-11 C5,-6 5,1 0,5 C-5,1 -5,-6 0,-11 Z" fill="#f2b84b"/>
+              <path d="M0,-6 C3,-3 3,1 0,3 C-3,1 -3,-3 0,-6 Z" fill="#fff6e9"/>
+            </g>
           </g>
+          <circle class="flameHit" data-idx="4" cx="190.5" cy="26" r="24" fill="transparent" pointer-events="all"/>
         </g>
       </svg>
     </div>
@@ -576,31 +594,31 @@
 
     <div class="photoRow">
       <figure class="photoFrame frame1">
-        <img src="w:\Ariq\ultah sayangku\source\4.png" alt="Foto kenangan 1">
-        <figcaption>still, favorite of all time (❁´◡`❁)</figcaption>
+        <img src="photo1.jpg" alt="Foto kenangan 1">
+        <figcaption>tulis caption di sini</figcaption>
       </figure>
       <figure class="photoFrame frame2">
-        <img src="w:\Ariq\ultah sayangku\source\3.png" alt="Foto kenangan 2">
-        <figcaption>GOLDEN HOUR !? (/≧▽≦)/</figcaption>
+        <img src="photo2.jpg" alt="Foto kenangan 2">
+        <figcaption>tulis caption di sini</figcaption>
       </figure>
     </div>
 
     <p class="letter" id="letterText">
-      Untuk <span class="highlight" id="letterName">kamu</span> — semoga tahun ini semua doa kamu terwujud,
-      dilimpahkan rezekinya, sehat selalu, wish u all the best. Terima kasih sudah bertahan,
+      Untuk <span class="highlight" id="letterName">kamu</span> — semoga tahun ini pelan-pelan membawa
+      semua yang selama ini kamu perjuangkan diam-diam. Terima kasih sudah bertahan,
       sudah berusaha, dan sudah tetap jadi dirimu sendiri. Selamat menempuh satu putaran
-      matahari lagi. <span class="highlight">Selamat ulang tahun sayaangg.</span> 🌙
+      matahari lagi. <span class="highlight">Selamat ulang tahun.</span> 🌙
     </p>
     <div class="wishRow">
-      <input type="text" class="wishField" id="wishInput" placeholder="ketik harapannya disinii" maxlength="60">
-      <button class="btn ghost" id="btnWish">Pencet ✧</button>
+      <input type="text" class="wishField" id="wishInput" placeholder="tulis satu harapan, lalu lepaskan..." maxlength="60">
+      <button class="btn ghost" id="btnWish">Lepaskan ✧</button>
     </div>
-    <p class="wishNote" id="wishNote">ur wishes will soar to the sky</p>
+    <p class="wishNote" id="wishNote">harapanmu akan naik ke langit</p>
   </section>
 
 </div>
 
-<footer class="tag">jangan lupa istighfar dan berdzikir</footer>
+<footer class="tag">dibuat dengan diam-diam, untuk dibuka sekali</footer>
 
 <div class="musicBar" id="musicBar">
   <button class="musicBtn" id="musicToggle" aria-label="Putar atau jeda lagu">
@@ -613,7 +631,7 @@
   <span class="musicTime" id="musicTime">0:00</span>
 </div>
 
-<audio id="bgSong" src="w:\Ariq\ultah sayangku\source\Lightning Moment (竖琴版) - TypeD - Topic (192k).mp3" preload="auto"></audio>
+<audio id="bgSong" src="example_song.mp3" preload="auto"></audio>
 
 <script>
 (function(){
@@ -663,6 +681,7 @@
 
   // ---------- candles ----------
   const flames = Array.from(document.querySelectorAll('.flame'));
+  const flameHits = Array.from(document.querySelectorAll('.flameHit'));
   const candleHint = document.getElementById('candleHint');
   const candleEyebrow = document.getElementById('candleEyebrow');
   const cakeWrap = document.getElementById('cakeWrap');
@@ -687,8 +706,11 @@
     }
   }
 
-  flames.forEach(flame => {
-    flame.addEventListener('click', (e) => {
+  flameHits.forEach(hit => {
+    const idx = hit.getAttribute('data-idx');
+    const flame = flames.find(f => f.getAttribute('data-idx') === idx);
+
+    hit.addEventListener('click', () => {
       if(flame.classList.contains('out')) return;
       flame.classList.add('out');
       remaining--;
